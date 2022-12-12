@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Statistics = props => {
   const { stats, title } = props;
   return (
@@ -14,6 +16,11 @@ const Statistics = props => {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(PropTypes.object).isRequired,
+  title: PropTypes.string,
 };
 
 export default Statistics;

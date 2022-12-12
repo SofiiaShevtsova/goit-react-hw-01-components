@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const ProfileCard = props => {
   const { avatar, username, tag, location, stats } = props;
   return (
@@ -25,4 +27,12 @@ export const ProfileCard = props => {
       </ul>
     </div>
   );
+};
+
+ProfileCard.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.object.isRequired,
 };

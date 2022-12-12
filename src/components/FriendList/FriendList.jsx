@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const FriendList = props => {
   const { friends } = props;
   return (
@@ -14,4 +16,8 @@ const FriendListItem = elem => {
       <p className="name">{name}</p>
     </li>
   );
+};
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
