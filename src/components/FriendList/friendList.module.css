@@ -26,17 +26,18 @@
   width: 75px;
 }
 
-.status_of {
+.status {
   display: block;
   width: 20px;
   height: 20px;
-  background-color: red;
   border-radius: 50%;
 }
+
+.status_of {
+  composes: status;
+  background-color: red;
+}
 .status_on {
-  display: block;
-  width: 20px;
-  height: 20px;
+  composes: status;
   background-color: green;
-  border-radius: 50%;
 }
