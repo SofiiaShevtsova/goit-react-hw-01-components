@@ -14,15 +14,18 @@ const TransactionHistory = props => {
       </thead>
 
       <tbody className={styles.table_body}>
-        {transactions.map(elem => tableTransactionType(elem))}
+        {transactions.map(elem => (
+          <TableTransactionType elem={elem} key={elem.id} />
+        ))}
       </tbody>
     </table>
   );
 };
 
-const tableTransactionType = elem => {
+const TableTransactionType = props => {
+  const { elem } = props;
   return (
-    <tr key={elem.id}>
+    <tr>
       <td className={styles.table_h_name}>{elem.type}</td>
       <td className={styles.table_h_name}>{elem.amount}</td>
       <td className={styles.table_h_name}>{elem.currency}</td>
@@ -31,7 +34,15 @@ const tableTransactionType = elem => {
 };
 
 TransactionHistory.propTypes = {
-  transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+      currency: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TransactionHistory;
